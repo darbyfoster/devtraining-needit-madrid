@@ -1,8 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?><database>
-    <element audit="true" extends="task" label="NeedIt" max_length="40" name="x_58872_needit_needit" type="collection">
+    <element audit="true" extends="task" label="NeedIt" max_length="40" name="x_58872_needit_needit" sizeclass="6" type="collection">
+        <element attributes="edge_encryption_enabled=true" label="Building" mandatory="true" max_length="40" name="u_building" type="string"/>
+        <element choice="3" default="1" label="Duration" mandatory="true" max_length="40" name="u_duration" type="integer">
+            <choice>
+                <element inactive_on_update="false" label="Permanent" sequence="0" value="1"/>
+                <element inactive_on_update="false" label="Temporary" sequence="1" value="2"/>
+            </choice>
+        </element>
+        <element label="Length of Time" max_length="40" name="u_glide_duration" type="glide_duration"/>
+        <element choice="3" default="1" label="Location" mandatory="true" max_length="40" name="u_location" type="integer">
+            <choice>
+                <element inactive_on_update="false" label="Indoors" sequence="0" value="1"/>
+                <element inactive_on_update="false" label="Outdoors" sequence="1" value="2"/>
+            </choice>
+        </element>
         <element attributes="edge_encryption_enabled=true" label="Other" max_length="40" name="u_other" type="string"/>
         <element label="Requested for" mandatory="true" max_length="32" name="u_requested_for" reference="sys_user" type="reference"/>
         <element attributes="edge_encryption_enabled=true" label="Requested for email" mandatory="true" max_length="40" name="u_requested_for_email" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Requested for phone" max_length="40" name="u_requested_phone" type="string"/>
         <element attributes="edge_encryption_enabled=true" choice="3" default="legal" label="Request type" mandatory="true" max_length="40" name="u_request_type" type="string">
             <choice>
                 <element inactive="true" inactive_on_update="true" label="Developer Enablement" sequence="0" value="dev_enable"/>
@@ -11,6 +26,8 @@
                 <element inactive_on_update="false" label="Legal" sequence="2" value="legal"/>
             </choice>
         </element>
+        <element attributes="edge_encryption_enabled=true" label="Room Number" mandatory="true" max_length="50" name="u_room_number" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Requested for phone" max_length="15" name="u_string_1" type="string"/>
         <element attributes="edge_encryption_enabled=true" choice="3" default="hr1" label="What needed" mandatory="true" max_length="40" name="u_what_needed" type="string">
             <choice>
                 <element inactive_on_update="false" label="Human Resources 1" sequence="0" value="hr1"/>
